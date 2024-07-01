@@ -1,19 +1,15 @@
 #include <ESP8266WiFi.h> 
-const char* ssid = "Tarun_Kavin"; //wifi ssid / wifi name
-const char* password = "Spavi@1413"; //wifi password
-int ledPin = 13; // GPIO13 
-WiFiServer server(80); 
+const char* ssid = "your wifi ssid/name"; //wifi ssid / wifi name
+const char* password = "your wifi password"; //wifi password
+WiFiServer server(80); //creates a server of http port 80
 void setup() { 
- Serial.begin(115200); 
+ Serial.begin(115200); //make sure the baud rate is same in serial monitor
  delay(10); 
  pinMode(D4, OUTPUT);
  pinMode(D5, OUTPUT);
  pinMode(D6, OUTPUT);
  pinMode(D7, OUTPUT); 
- digitalWrite(ledPin, LOW); 
  // Connect to WiFi network 
- Serial.println(); 
- Serial.println(); 
  Serial.print("Connecting to "); 
  Serial.println(ssid); 
  WiFi.begin(ssid, password); 
@@ -152,7 +148,7 @@ void loop() {
  client.println("</body>"); 
  client.println("</html>"); 
  delay(1); 
- Serial.println("Client disonnected"); 
+ Serial.println(" response sent"); 
  Serial.println(""); 
 } 
  
